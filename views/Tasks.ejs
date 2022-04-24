@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <title>Laba1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<main class="container" style="padding-top: 30px">
+    <input class="form-control mb-2" type="text" placeholder="Search" id="search-text" onkeyup="tableSearch()">
+    <table class="table mb-5" id="tasks-table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Number</th>
+            <th scope="col">Status</th>
+            <th scope="col">Deadline</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for (var i = 0; i < tasks.length;i++) { %>
+            <tr>
+                <th scope="row"><%= i + 1 %></th>
+                <td><%= tasks[i].subject %></td>
+                <td><%= tasks[i].number %></td>
+                <td><%= tasks[i].status %></td>
+                <td><%= tasks[i].deadline %></td>
+                <td class="attach"><%= tasks[i].attach %>
+            </tr>
+        <% } %>
+        </tbody>
+    </table>
+    <h3> Add task </h3>
+    <%- include("AddTask.ejs") %>
+</main>
+<script>
+    function tableSearch() {
+        let phrase = document.getElementById('search-text');
+        let table = document.getElementById('tasks-table');
+        for (let i = 1; i < table.rows.length; i++) {
+            let flag = table.rows[i].cells[3].innerHTML.startsWith(phrase.value);
+            if (flag) {
+                table.rows[i].style.display = "";
+            } else {
+                table.rows[i].style.display = "none";
+            }
+        }
+    }
+</script>
+</body>
+</html>

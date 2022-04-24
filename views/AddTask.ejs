@@ -1,0 +1,29 @@
+<form action="/add" method="post" enctype="multipart/form-data">
+    <div class="form-group p-2">
+        <label>Subject</label>
+        <input type="text" class="form-control" name="subject" required>
+    </div>
+    <div class="form-group  p-2">
+        <label>Task number</label>
+        <input type="number" class="form-control" name="number" required>
+    </div>
+    <div class="form-group  p-2">
+        <label>Status</label>
+        <select class="form-control" name="status">
+            <option value="accepted">Accepted</option>
+            <option value="in progress">In progress</option>
+            <option value="done">Done</option>
+            <option value="cancelled">Cancelled</option>
+        </select>
+    </div>
+    <div class="form-group  p-2">
+        <lable>Deadline</lable>
+        <input type="date" name="deadline"
+               min="2022-01-26" max="2022-05-18" class="form-control">
+    </div>
+    <div class="form-group  p-2">
+        <label>Attach file</label>
+        <input type="file" class="form-control-file" name="filedata" required>
+    </div>
+    <button type="submit" class="btn btn-primary  p-2 ">Submit</button>
+</form>

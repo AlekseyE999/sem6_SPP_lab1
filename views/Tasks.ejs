@@ -20,7 +20,7 @@
             <th scope="col">Number</th>
             <th scope="col">Status</th>
             <th scope="col">Deadline</th>
-            <th scope="col"></th>
+            <th scope="col">File</th>
         </tr>
         </thead>
         <tbody>
@@ -31,7 +31,7 @@
                 <td><%= tasks[i].number %></td>
                 <td><%= tasks[i].status %></td>
                 <td><%= tasks[i].deadline %></td>
-                <td class="attach"><%= tasks[i].attach %>
+                <td class="attach"><%= tasks[i].attach ?? "No file attached" %>
             </tr>
         <% } %>
         </tbody>
